@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnet-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dotnetapi
+  template:
+    metadata:
+      labels:
+        app: dotnetapi
+    spec:
+      containers:
+      - name: dotnetapi
+        image: acrhardik01.azurecr.io/dotnetapi:v1
+        ports:
+        - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dotnet-api-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: dotnetapi
+  ports:
+  - port: 80
+    targetPort: 8080
