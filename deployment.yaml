@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: dotnetapi
-        image: acrhardik01.azurecr.io/dotnetapi:v1
+        image: acrhardik01.azurecr.io/mywebapihardik:v1
         ports:
         - containerPort: 8080
 
