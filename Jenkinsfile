@@ -65,7 +65,7 @@ pipeline {
 
         stage('Deploy to AKS') {
             steps {
-                bat 'kubectl apply -f deployment.yml'
+                bat 'kubectl apply -f deployment.yaml'
                 
             }
         }
